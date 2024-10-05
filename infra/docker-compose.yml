@@ -11,3 +11,16 @@ services:
       - AWS_DEFAULT_REGION=eu-west-1
       - AWS_SESSION_TOKEN=${AWS_SESSION_TOKEN}
       - TF_WORKSPACE=${TF_WORKSPACE}
+
+  app:
+    build:
+      context: .
+    command: >
+      sh -c "
+        pip install flake8 &&
+        python manage.py flake8
+      "
+    volumes:
+      - .:/code
+    environment:
+      - DJANGO_SETTINGS_MODULE=your_project.settings
