@@ -14,3 +14,12 @@ output "cd_user_arn" {
   value       = aws_iam_user.cd.arn
 }
 
+output "ecr_repo_app" {
+  description = "The URL of the ECR app repository"
+  value       = aws_ecr_repository.app.repository_url
+}
+
+output "ecr_repo_proxy" {
+  description = "The URL of the ECR proxy repository"
+  value       = aws_ecr_repository.proxy.repository_url
+}

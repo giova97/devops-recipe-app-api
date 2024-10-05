@@ -20,3 +20,9 @@ variable "contact" {
   type        = string
   default     = "giorgos.georgiou.dev@gmail.com"
 }
+
+variable "prefix" {
+  description = "Prefix for resources"
+  type        = string
+  default     = "devops"
+}
