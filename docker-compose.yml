@@ -38,4 +38,3 @@ volumes:
   dev-db-data:
   dev-static-data:
   dev-media-data:
-  
