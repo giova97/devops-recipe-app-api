@@ -68,8 +68,8 @@ resource "aws_iam_policy" "tf_backend" {
       },
       {
         Effect   = "Allow"
-        Action   = "ec2:DescribeVpcClassicLink"
-        Resource = "*"
+        Action   = "ec2:DescribeVpcClassicLink" // Asegúrate de que esta línea esté presente
+        Resource = "*"                          // Permitir en todos los recursos
       }
     ]
   })
@@ -77,7 +77,7 @@ resource "aws_iam_policy" "tf_backend" {
 
 resource "aws_iam_user_policy_attachment" "tf_backend" {
   user       = aws_iam_user.cd.name
-  policy_arn = aws_iam_policy.tf_backend.arn
+  policy_arn = aws_iam_policy.tf_backend.arn // Asegúrate de que esta línea esté presente
 }
 #########################
 # Policy for ECR access #
