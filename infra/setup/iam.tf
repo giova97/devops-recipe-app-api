@@ -62,14 +62,15 @@ resource "aws_iam_policy" "tf_backend" {
         Action = [
           "dynamodb:GetItem",
           "dynamodb:PutItem",
-          "dynamodb:DeleteItem"
+          "dynamodb:DeleteItem",
+          "dynamodb:DescribeTable"
         ]
         Resource = "arn:aws:dynamodb:*:*:table/${var.tf_state_lock_table}"
       },
       {
         Effect = "Allow"
         Action = [
-          "ec2:DescribeVpcClassicLink",
+          "ec2:DescribeVpcClassicLink", // Permiso necesario
           "ec2:DescribeVpcs",
           "ec2:DescribeSubnets",
           "ec2:DescribeRouteTables",
@@ -90,7 +91,7 @@ resource "aws_iam_policy" "tf_backend" {
           "ec2:CreateSecurityGroup",
           "ec2:DeleteSecurityGroup"
         ]
-        Resource = "*"
+        Resource = "*" // Permitir en todos los recursos
       }
     ]
   })
