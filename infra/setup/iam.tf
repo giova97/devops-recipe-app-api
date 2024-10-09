@@ -65,6 +65,11 @@ resource "aws_iam_policy" "tf_backend" {
           "dynamodb:DeleteItem"
         ]
         Resource = "arn:aws:dynamodb:*:*:table/${var.tf_state_lock_table}"
+      },
+      {
+        Effect   = "Allow"
+        Action   = "ec2:DescribeVpcClassicLink"
+        Resource = "*"
       }
     ]
   })
