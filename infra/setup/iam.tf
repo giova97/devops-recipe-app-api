@@ -68,8 +68,8 @@ resource "aws_iam_policy" "tf_backend" {
       },
       {
         Effect   = "Allow"
-        Action   = "ec2:DescribeVpcClassicLink" // Asegúrate de que esta línea esté presente
-        Resource = "*"                          // Permitir en todos los recursos
+        Action   = "ec2:DescribeVpcClassicLink"
+        Resource = "*"
       }
     ]
   })
