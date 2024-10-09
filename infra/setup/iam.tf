@@ -67,8 +67,29 @@ resource "aws_iam_policy" "tf_backend" {
         Resource = "arn:aws:dynamodb:*:*:table/${var.tf_state_lock_table}"
       },
       {
-        Effect   = "Allow"
-        Action   = "ec2:DescribeVpcClassicLink"
+        Effect = "Allow"
+        Action = [
+          "ec2:DescribeVpcClassicLink",
+          "ec2:DescribeVpcs",
+          "ec2:DescribeSubnets",
+          "ec2:DescribeRouteTables",
+          "ec2:DescribeInternetGateways",
+          "ec2:DescribeSecurityGroups",
+          "ec2:CreateVpc",
+          "ec2:DeleteVpc",
+          "ec2:CreateSubnet",
+          "ec2:DeleteSubnet",
+          "ec2:CreateRouteTable",
+          "ec2:DeleteRouteTable",
+          "ec2:CreateRoute",
+          "ec2:DeleteRoute",
+          "ec2:CreateInternetGateway",
+          "ec2:DeleteInternetGateway",
+          "ec2:AttachInternetGateway",
+          "ec2:DetachInternetGateway",
+          "ec2:CreateSecurityGroup",
+          "ec2:DeleteSecurityGroup"
+        ]
         Resource = "*"
       }
     ]
